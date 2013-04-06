@@ -1,1 +1,0 @@
-[2013-04-06 10:07:30] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /jquery-ui/js/jquery-1.9.1.min.js" (uncaught exception) at C:\ProjectosSymfony\reparaciones\vendor\symfony\symfony\src\Symfony\Component\HttpKernel\EventListener\RouterListener.php line 92 [] []
