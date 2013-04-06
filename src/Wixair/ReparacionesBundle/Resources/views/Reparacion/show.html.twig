@@ -1,0 +1,89 @@
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <td>Wixair</td>
+            <td>Registro: <span style='border:1px solid black'>{{ entity.id }}</span></td>
+        </tr>
+        <tr><td colspan="2" style="text-align:center;">C/ Samuel Liébana Nose qué</td></tr>
+        <tr>
+            <th>Fecha_entrada</th>
+            <th>Fecha_salida</th>
+        </tr>
+        <tr>
+            <td style='border:1px solid black'>{{ entity.fechaentrada|date('d-m-Y') }}</td>
+            <td style='border:1px solid black'>{{ entity.fechasalida|date('d-m-Y') }}</td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+        </tr>
+        <tr>
+            <td colspan="2" style='border:1px solid black'>{{ entity.nombre }}</td>
+        </tr>
+        <tr>
+            <th>Tlf</th>
+            <th>Equipo</th>
+        </tr>
+        <tr>
+            <td style='border:1px solid black'>{{ entity.tlf }}</td>
+            <td style='border:1px solid black'>
+                {%if entity.tipoequipo == 1%}
+                    <u>Portatil</u> / Sobremesa
+                {%elseif entity.tipoequipo == 2%}
+                    Portatil / <u>Sobremesa</u>
+                {%else%}
+                    Portatil / Sobremesa
+                {%endif%}
+            </td>
+        </tr>
+        <tr>
+            <th>Numero_serie</th>
+        </tr>
+        <tr>
+            <td colspan="2" style='border:1px solid black'>{{ entity.numeroserie }}</td>
+        </tr>
+        <tr>
+            <th>Accesorios</th>
+        </tr>
+        <tr>
+            <td colspan="2" style='border:1px solid black'>{{ entity.accesorios }}</td>
+        </tr>
+        <tr>
+            <th>Averia</th>
+        </tr>
+        <tr>
+            <td colspan="2" style='border:1px solid black'>{{ entity.averia }}</td>
+        </tr>
+        <tr>
+            <th>Reparacion</th>
+        </tr>
+        <tr>
+            <td colspan="2" style='border:1px solid black'>{{ entity.reparacion }}</td>
+        </tr>
+        <tr>
+            <th>Precio</th>
+            <th>Presupuesto_aceptado</th>
+        </tr>
+        <tr>
+            <td style='border:1px solid black'>{{ entity.precio }}</td>
+            <td style='border:1px solid black'>
+                {%if entity.presupuestoaceptado == true%}
+                    <u>Sí</u> / No
+                {%elseif entity.presupuestoaceptado == false%}
+                    Sí / <u>No</u>
+                {%else%}
+                    Sí / No
+                {%endif%}            
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="border:1px solid black;height:70px;"></td>
+        </tr>
+        <tr>
+            <th>Observaciones</th>
+        </tr>
+        <tr>
+            <td colspan="2" style='border:1px solid black'>{{ entity.observaciones }}</td>
+        </tr>
+    </tbody>
+</table>

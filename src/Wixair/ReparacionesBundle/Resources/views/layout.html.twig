@@ -1,0 +1,24 @@
+<!doctype HMTL>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{asset("css/reset.css")}}">
+        <link rel="stylesheet" href="{{asset("css/style.css")}}">
+        <link rel="stylesheet" href="{{asset("jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.css")}}">
+        <script type="text/javascript" src="{{asset("jquery-ui/js/jquery-1.9.1.js")}}"></script>
+        <script type="text/javascript" src="{{asset("jquery-ui/js/jquery-ui-1.10.2.custom.js")}}"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".datepicker").datepicker( {dateFormat: 'dd-mm-yy'});
+            });
+        </script>
+    </head>
+    <body>
+        <header id="header">
+            <img src="{{asset("images/logoP.jpg")}}" />
+            <h1>Reparaciones</h1>
+        </header>
+        <div id="wrapper">
+            {%block wrapper%}{%endblock%}
+        </div>
+    </body>
+</html>

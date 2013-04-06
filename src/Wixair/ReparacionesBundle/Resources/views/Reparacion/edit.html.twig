@@ -1,0 +1,24 @@
+{% extends "WixairReparacionesBundle::layout.html.twig" %}
+{%block wrapper%}
+<div class="formularioGeneral">
+<form action="{{ path('reparacion_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_widget(edit_form) }}
+    <p>
+        <button type="submit">Editar</button>
+    </p>
+</form>
+</div>
+<ul class="record_actions">
+    <li>
+        <a class="button" href="{{ path('reparacion') }}">
+            Volver al listado de reparacines
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('reparacion_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Borrar</button>
+        </form>
+    </li>
+</ul>
+{%endblock%}

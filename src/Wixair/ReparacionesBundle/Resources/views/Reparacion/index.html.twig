@@ -1,0 +1,78 @@
+{% extends "WixairReparacionesBundle::layout.html.twig" %}
+{%block wrapper%}
+<fieldset id="formFilter">
+    <legend>Filtrar listado</legend>
+<form method="get" action="." class="formFilter">
+    {{ form_rest(form) }}
+        <br clear="all">
+    <input type="submit" name="submit-filter" value="Filtrar" />
+</form>
+<a class="button" href="{{ path('reparacion') }}">
+            Anular filtro
+        </a>
+</fieldset>
+
+<table id="listaReparaciones" class="records_list">
+    <thead>
+        <tr>
+            <th>Registro</th>
+            <th>Fecha de Entrada</th>
+            <th>Fecha de Salida</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Equipo</th>
+            <th>N/S</th>
+            <th>Precio</th>
+            <th>Presupuesto Aceptado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('reparacion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{% if entity.fechaentrada %}{{ entity.fechaentrada|date('Y-m-d') }}{% endif %}</td>
+            <td>{% if entity.fechasalida %}{{ entity.fechasalida|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.tlf }}</td>
+            <td>{{ entity.email }}</td>
+            <td>
+                {% if entity.tipoequipo == 1%}
+                    Portatil
+                {%elseif entity.tipoequipo == 2%}
+                    Sobremesa
+                {%endif%}
+            </td>
+            <td>{{ entity.numeroserie }}</td>
+            <td>{{ entity.precio }}</td>
+            <td>{% if entity.presupuestoaceptado == true%}
+                    Sí
+                {%elseif entity.presupuestoaceptado == false%}
+                    No
+                {%endif%}
+            </td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('reparacion_show', { 'id': entity.id }) }}">Ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('reparacion_edit', { 'id': entity.id }) }}">Editar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <br>
+        <a class="button" href="{{ path('reparacion_new') }}">
+            Nueva reparación
+        </a>
+    </li>
+</ul>
+{%endblock%}

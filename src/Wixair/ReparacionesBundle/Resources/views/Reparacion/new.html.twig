@@ -1,0 +1,18 @@
+{% extends "WixairReparacionesBundle::layout.html.twig" %}
+{%block wrapper%}
+<div class="formularioGeneral">
+    <form action="{{ path('reparacion_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Crear</button>
+        </p>
+    </form>
+</div>
+<ul class="record_actions">
+    <li>
+        <a class="button" href="{{ path('reparacion') }}">
+            Volver al listado
+        </a>
+    </li>
+</ul>
+{%endblock%}
